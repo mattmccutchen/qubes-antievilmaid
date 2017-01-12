@@ -22,6 +22,7 @@ plymouth_message() {
     PLYMOUTH_MESSAGES+=("$*")
 }
 . anti-evil-maid-lib
+sanepcrs || exit 1
 
 
 # find AEM device

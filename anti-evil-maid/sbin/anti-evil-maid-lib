@@ -104,3 +104,11 @@ removable() {
 
     [ "$_rm" = 1 ]
 }
+
+sanepcrs() {
+    if grep -E '^PCR-1[3789]:( 00| FF){20}' /sys/devices/pnp*/*/pcrs;
+       [ $? != 1 ]; then
+        message "PCR sanity check failed. Do you have the right SINIT blob?"
+        return 1
+    fi
+}
